@@ -1,24 +1,19 @@
-package com.tlu.learning.ex_full;
+package com.tlu.learning.ex_full.model;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
-import java.time.LocalDate;
-
 @Data
-@Getter
-@Setter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@FieldDefaults (level = AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Employee {
     String id;
     String name;
-    LocalDate dob;
+    String dob;
     Gender gender;
-    Double salary;
+    double salary;
     String phone;
+    String departmentId;
 }
-
-

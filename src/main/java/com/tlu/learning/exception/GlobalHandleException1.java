@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class GlobalHandleException {
+public class GlobalHandleException1 {
     @ExceptionHandler(AppException.class)
     public ResponseEntity<?> handleAppException(AppException exception) {
         ErrorCode errorCode = exception.getErrorCode();

@@ -1,4 +1,4 @@
-package com.tlu.learning;
+package com.tlu.learning.model;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
