@@ -6,8 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IEmployeeRepository {
+
+    List<Employee> findAll();
     List<Employee> search(EmployeeSearchRequest request);
-    Optional<Employee> findById(String id);
+
+    boolean filterBySalary(double salary, String range);
+    Optional<Employee> findById(int id);
     Employee save(Employee employee);
-    boolean deleteById(String id);
+    boolean deleteById(int id);
 }

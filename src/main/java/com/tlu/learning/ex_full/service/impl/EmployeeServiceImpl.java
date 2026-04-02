@@ -18,31 +18,36 @@ public class EmployeeServiceImpl implements IEmployeeService {
     private final IEmployeeRepository employeeRepository;
 
     @Override
+    public List<Employee> findAll() {
+        return employeeRepository.findAll();
+    }
+
+    @Override
     public List<Employee> search(EmployeeSearchRequest request) {
         return employeeRepository.search(request);
     }
 
     @Override
-    public Employee getById(String id) {
+    public Employee getById(int id) {
         return employeeRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_FOUND));
     }
 
     @Override
     public Employee create(Employee employee) {
-        employee.setId(UUID.randomUUID().toString());
+        employee.setId(Integer.parseInt(UUID.randomUUID().toString()));
         return employeeRepository.save(employee);
     }
 
     @Override
-    public Employee update(String id, Employee employee) {
-        getById(id); // Kiểm tra tồn tại
+    public Employee update(int id, Employee employee) {
+        getById(id);
         employee.setId(id);
         return employeeRepository.save(employee);
     }
 
     @Override
-    public void delete(String id) {
+    public void delete(int id) {
         if (!employeeRepository.deleteById(id)) {
             throw new AppException(ErrorCode.USER_NOT_FOUND);
         }

@@ -1,19 +1,24 @@
 package com.tlu.learning.ex_full.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@JsonFormat(pattern = "yyyy-MM-dd")
 public class Employee {
-    String id;
+    Integer id;
     String name;
-    String dob;
+    LocalDate dob;
     Gender gender;
     double salary;
     String phone;
-    String departmentId;
+    Integer departmentId;
 }
